@@ -13,7 +13,7 @@ const loginSchema = new mongoose.Schema({
 });
 
 const signUpSchema = new mongoose.Schema({
-  firstName: { type: Alph, required: true },
+  firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true, unique: true },

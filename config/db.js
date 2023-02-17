@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
+const md5 = require("md5");
 const { URI, PASSWORD } = process.env;
 const dbUrl = URI.replace(`<password>`, PASSWORD);
 const Login = require("../model/model");
@@ -17,8 +18,12 @@ mongoose
   .then(() => console.log("Connected to Database")) //Connected to Database,not collections
   .catch((err) => console.log(err));
 
-//Test data - populating test data in the database
-// const data = new Login({ email: "chandra@test.com", password: "asfa" });
+//Test data - populating test data in the database.
+
+// const data = new Login({
+//   email: "chandra@test.com",
+//   password: md5("123457"),
+// });
 
 // data.save(function (err, success) {
 //   if (err) {
