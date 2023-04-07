@@ -17,19 +17,4 @@ const mongoConnect = mongoose.connect(dbURI, {
   .then(() => console.log("Connected to Database")) //Connected to Database,not collections
   .catch((err) => console.log(err));
 
-  console.log(mongoConnect)
-//Test data - populating test data in the database.
-
-// const data = new Login({
-//   email: "chandra@test.com",
-//   password: md5("123457"),
-// });
-
-// data.save(function (err, success) {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log(success);
-//   }
-// });
-
+  module.exports = mongoConnect;
