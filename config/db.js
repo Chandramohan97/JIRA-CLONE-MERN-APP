@@ -8,13 +8,13 @@ const dbURI = URI.replace(`<password>`, PASSWORD);
 
 mongoose.set("strictQuery",false);
 
-const mongoConnect = mongoose.connect(dbURI, {
-    useNewUrlParser: true, // uses the new parser engine instead of the old one.
-    useUnifiedTopology: true, //useUnifiedTopology ensures efficient connectivity between database and application.
-    // useCreateIndex : true//uses Index to classify collections in a database for efficient query.Deprecated in the current version of mongoose
-    // useFindAndModify: false, // the method is deprecated, hence setting it to false and making the code future-proof.Deprecated in the current version of Mongoose.
-  })
-  .then(() => console.log("Connected to Database")) //Connected to Database,not collections
-  .catch((err) => console.log(err));
+const mongoConnect = async() =>{
+  try{
+    const conn = await mongoose.connect(dbURI,{useNewUrlParser: true,useUnifiedTopology: true});
+    console.log(conn);
+  }catch(error){
+    console.log('Error')
+  }
+}
 
-  module.exports = mongoConnect;
+  module.exports = {mongoConnect};
