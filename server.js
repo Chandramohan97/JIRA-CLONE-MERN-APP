@@ -1,16 +1,20 @@
 const app = require("express")();
 require("dotenv").config();
-const userController = require('./controller/userController')
+const bodyParser = require('body-parser');
 const {mongoConnect} = require('./config/db')
-// console.log(port);
-
-
+const userRoute = require("./routes/userRoute")
 const port = process.env.PORT || 8080;
+const cors = require('cors');
+// app.use(cors());
+
+
 mongoConnect();
 
 app.get("/", (req, res) => {
   res.send("Api working");
 });
+
+app.use('/user',userRoute)
 
 app.listen(port, () => {
   console.log(`Server started on Port : ${port}`);

@@ -1,5 +1,9 @@
 const userRoute = require("express").Router();
+const userSignUp = require("../controller/userController");
+const bodyParser = require('body-parser');
 
-userRoute.get;
+userRoute.use(bodyParser.json())
 
-module.exports = userRoute;
+userRoute.route("/signUp").post(userSignUp);
+
+module.exports = userRoute; 

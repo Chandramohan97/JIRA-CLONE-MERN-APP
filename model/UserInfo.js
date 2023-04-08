@@ -7,6 +7,6 @@ const signUpSchema = new mongoose.Schema({
   password: { type: String, required: true, unique: true },
   mobileNo: { type: Number, required: true, unique: true },
 });
-const UserInfo = mongoose.model("UserInfo", loginSchema);
+const UserInfo = mongoose.model("UserInfo", signUpSchema);
 
 module.exports = UserInfo;
