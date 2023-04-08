@@ -5,7 +5,8 @@ const {mongoConnect} = require('./config/db')
 const userRoute = require("./routes/userRoute")
 const port = process.env.PORT || 8080;
 const cors = require('cors');
-// app.use(cors());
+
+app.use(cors());
 
 
 mongoConnect();
