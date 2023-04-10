@@ -1,8 +1,10 @@
 const brcypt = require('bcrypt');
 const UserInfo = require("../model/UserInfo")
-const userSignUp =async(req,res) =>{
+
+const userController =async(req,res) =>{
     
     try{
+        
         const {name,mobileNo,email,password} = req.body;
         // console.log("Request body:", req.body);
         const salt = await brcypt.genSalt(10);
@@ -18,8 +20,11 @@ const userSignUp =async(req,res) =>{
 
         newUser.save((error, user) => {
         if (error) {
+            res.send(error);
+            console.log('Error saving data:', error);
+            // console.log('Error saving data')
             // console.log("Error saving user:", error);
-            res.status(500).json({ error: "User already exists" });
+            // res.status(500).json({ error: "User already exists" });
         } else {
             console.log("User saved:", user);
             res.status(200).send({ name: user.name });
@@ -32,4 +37,4 @@ const userSignUp =async(req,res) =>{
 }
 
 
-module.exports = userSignUp;
+module.exports = userController;
