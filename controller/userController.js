@@ -15,6 +15,7 @@ const userController =async(req,res) =>{
             mobileNo,
             email,
             password : encryptPassword,
+            // createdProject : createdProject
         })
         // console.log("New user:", newUser);
 

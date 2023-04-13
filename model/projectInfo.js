@@ -17,7 +17,14 @@ const projectCreation = new mongoose.Schema({
                 return value <= this.currentTeamCount
             },
             message : "Max number of team members reacthed"
+        },
+        createdBy : {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : "UserInfo",
+            required : true
         }
+            
+        
     }
 })
 

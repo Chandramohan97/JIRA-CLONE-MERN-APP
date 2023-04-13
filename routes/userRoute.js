@@ -3,6 +3,6 @@ const userController = require("../controller/userController");
 // const bodyParser = require('body-parser');
 
 
-userRoute.route("/signUp").post(userController);
+userRoute.route("/").post(userController);
 
 module.exports = userRoute; 

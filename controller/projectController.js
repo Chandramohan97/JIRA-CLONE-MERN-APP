@@ -10,7 +10,8 @@ const projectController = async(req,res) =>{
             taskList,
             teamMembersList,
             maxTeamCount,
-            currentTeamCount
+            currentTeamCount,
+           
         })
 
         console.log(newProject);
