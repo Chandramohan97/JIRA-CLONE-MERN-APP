@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/projectCreation',projectRoute);
-app.use('/user',userRoute)
+app.use('/signUp',userRoute)
 
 app.listen(port, () => {
   console.log(`Server started on Port : ${port}`);
